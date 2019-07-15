@@ -1,0 +1,7 @@
+<apex:page controller="GuageChartController">
+<apex:chart height="250" width="450" animate="true" data="{!data}">
+    <apex:axis type="Gauge" position="gauge" title="Revenue Speedometer"
+        minimum="0" maximum="10000000" steps="10"/>
+    <apex:gaugeSeries dataField="expectedRevenue" donut="50" colorSet="#78c953,#ddd"/>
+</apex:chart>
+</apex:page>

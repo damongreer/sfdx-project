@@ -1,0 +1,59 @@
+<aura:component controller="AccountsWithContactsController" 
+                implements="force:hasRecordId,force:lightningQuickAction" >
+    <aura:attribute name="contacts" type="List" />
+    <aura:attribute name="headers" type="List" />
+    <aura:attribute name="allData" type="List" />
+    <aura:attribute name="pageSize" type="Integer" default="2000"/>
+    <aura:attribute name="currentPage" type="Integer" default="1" />
+    <aura:attribute name="totalPages" type="Integer" default="0" />    
+    <aura:attribute name="firstDisable" type="Boolean" default="false" />
+    <aura:attribute name="prevDisable" type="Boolean" default="false" />
+    <aura:attribute name="nextDisable" type="Boolean" default="false" />
+    <aura:attribute name="lastDisable" type="Boolean" default="false" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <div style="height:500px,width:600px">
+        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">        
+            <table>
+                <tr>
+                    <aura:iteration items="{!v.headers}" var="head">
+                        <th>{!head.label}</th>
+                    </aura:iteration>
+                </tr>
+                <aura:iteration items="{!v.contacts}" var="con">
+                    <tr>
+                        <td>{!con.Name}</td>
+                        <td>{!con.Phone}</td>
+                        <td>{!con.Email}</td>
+                        <td>{!con.Owner.Name}</td>
+                        <td>{!con.CreatedDate}</td>
+                    </tr>
+                </aura:iteration>
+            </table>
+        </div>
+        <footer class="slds-modal__footer">
+            <div class="slds-grid slds-grid_align-center">
+                <lightning:button variant="brand"
+                                  onclick="{!c.onFirst}" 
+                                  disabled="{! v.firstDisable}" class="myButton">First</lightning:button>
+                <lightning:button variant="brand"
+                                  onclick="{!c.onPrev}" 
+                                  disabled="{! v.prevDisable}" class="myButton">Previous</lightning:button>
+                {!v.currentPage}/{!v.totalPages}
+                <lightning:button variant="brand"
+                                  disabled="{! v.nextDisable}" 
+                                  onclick="{!c.onNext}" class="myButton">Next</lightning:button>                
+                <lightning:button variant="brand"
+                                  disabled="{! v.lastDisable}" 
+                                  onclick="{!c.onLast}" class="myButton">Last</lightning:button>
+                <div class="slds-form slds-form_horizontal" >
+                    <lightning:select aura:id="select1" onchange="{!c.resize}">
+                        <option value="2000">All</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                    </lightning:select>
+                </div>
+            </div>
+        </footer>
+    </div>
+</aura:component>

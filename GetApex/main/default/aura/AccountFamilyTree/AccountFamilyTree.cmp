@@ -1,0 +1,17 @@
+<aura:component controller="AccountFamilyTreeController" 
+                implements="force:hasRecordId,flexiPage:availableForAllPageTypes">
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="selected" type="String" />
+    <aura:attribute name="accts" type="List" default="[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:card variant="base">
+        <div class="head">
+            <h1><b>Account Hierarchy</b></h1>
+        </div>
+        <div class="slds-scrollable_y" style="height:250px;">
+            <div class="slds-p-around_medium lgc-bg" >
+                <lightning:tree items="{!v.accts}" onselect="{!c.handleSelect}"/>
+            </div>
+        </div>
+    </lightning:card>
+</aura:component>

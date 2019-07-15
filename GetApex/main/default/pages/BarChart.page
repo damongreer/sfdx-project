@@ -1,0 +1,10 @@
+<apex:page controller="OppsController" lightningStylesheets="true">
+    <!-- Create a chart that displays the total revenue of each opportunity stage -->
+        <apex:chart data="{!barData}" height="550" width="375">
+            <apex:axis type="Numeric" position="left" title="Total Revenue" fields="expectedRevenue" />
+            <apex:axis type="Category" position="bottom" title="Opportunity Stage" fields="stageName" >
+                <apex:chartLabel rotate="315"/>
+            </apex:axis>
+            <apex:barSeries orientation="vertical" axis="left" xField="stageName" yField="expectedRevenue" />
+        </apex:chart>
+</apex:page>

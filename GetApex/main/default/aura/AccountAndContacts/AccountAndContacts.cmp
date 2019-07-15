@@ -1,0 +1,28 @@
+<aura:component controller="GetAccountAndContacts">
+    <aura:attribute name="accounts" type="Account[]"/>
+    <aura:attribute name="contacts" type="Contact[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <div>
+        <div style="text-align:center;font-size:25px">
+            Accounts
+        </div>
+
+        <aura:iteration items="{!v.accounts}" var="acc">
+        <div class="slds-truncate" title="Adam Choi" >
+            <a href="javascript:void(0);" onclick="{!c.Clicked}" data-value="{!acc.Id}">
+                {!acc.Name}
+            </a>
+        </div>
+    </aura:iteration>
+    </div>
+    <div>
+        <div style="text-align:center;font-size:25px">
+            Contacts
+        </div>
+        <aura:iteration items="{!v.contacts}" var="con">
+        <div class="slds-truncate" title="Adam Choi" >
+                {!con.Name}
+        </div>
+    </aura:iteration>
+    </div>
+</aura:component>

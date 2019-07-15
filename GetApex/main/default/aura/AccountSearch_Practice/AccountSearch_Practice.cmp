@@ -1,0 +1,33 @@
+<aura:component controller="AccountSearch_Practice">
+    <aura:attribute name="accList" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-cols slds-size_1-of-1">
+            <div class="slds-cols slds-size_1-of-3" >
+                <lightning:input aura:id="search" 
+                                 type="String" 
+                                 label="Enter a Zip Code" />
+                <lightning:button variant="brand" 
+                                  onclick="{!c.search}">Search</lightning:button>
+            </div>
+        </div>
+        <div class="slds-cols slds-size_1-of-2" >   
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>State</th>
+                    <th>Zip</th>
+                </tr>
+                <aura:iteration items="{!v.accList}" var="a">
+                    <tr>
+                        <td>{!a.Id}</td>
+                        <td>{!a.Name}</td>
+                        <td>{!a.BillingState}</td>
+                        <td>{!a.BillingPostalCode}</td>
+                    </tr>
+                </aura:iteration>
+            </table>
+        </div>
+    </div>
+</aura:component>

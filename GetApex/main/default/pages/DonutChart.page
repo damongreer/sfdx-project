@@ -1,0 +1,8 @@
+<apex:page controller="OppsController" lightningStylesheets="true">
+    <apex:chart data="{!barData}" height="400" width="375" background="#F5F5F5">
+        <apex:legend position="left"/>
+        <apex:pieSeries dataField="expectedRevenue" labelField="stageName" donut="50">
+            <apex:chartLabel display="none"/>
+        </apex:pieSeries>
+    </apex:chart>
+</apex:page>
