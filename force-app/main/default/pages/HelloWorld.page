@@ -12,4 +12,5 @@
     </apex:panelGrid>
   </apex:form> 
   </apex:pageBlock>
+  Random Characters
 </apex:page>
