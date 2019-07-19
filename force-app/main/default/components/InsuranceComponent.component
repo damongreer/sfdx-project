@@ -1,8 +1,8 @@
-<apex:component controller="InsuranceController">
+<apex:component controller="FSCController">
     <apex:pageBlock >
         <apex:pageBlockSection >
-            <apex:outputField >{!Insurance__c.Payor_Name__c} </apex:outputField>
-            <apex:outputField >{!Insurance__c.Insurance_1_Type__c} </apex:outputField>
+            {!fsc.Payor_Name__c}
+            {!fsc.Plan_Type__c}
         </apex:pageBlockSection>
     </apex:pageBlock>
 </apex:component>
