@@ -1,0 +1,8 @@
+<apex:component controller="InsuranceController">
+    <apex:pageBlock >
+        <apex:pageBlockSection >
+            <apex:outputField >{!Insurance__c.Payor_Name__c} </apex:outputField>
+            <apex:outputField >{!Insurance__c.Insurance_1_Type__c} </apex:outputField>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:component>
